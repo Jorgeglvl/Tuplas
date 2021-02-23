@@ -8,13 +8,13 @@ import javax.swing.JScrollPane;
 
 public class ServerFrame {
 
-	private ServerFrame window;
+	private ServerFrame serverFrame;
 	private JFrame frmServidorLog;
 	private JScrollPane scrollPane;
 	private JTextArea log;
 
 	public ServerFrame() {
-		window = this;
+		serverFrame = this;
 		initialize();
 		createRunnable();
 	}
@@ -41,7 +41,7 @@ public class ServerFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					window.frmServidorLog.setVisible(true);
+					serverFrame.frmServidorLog.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

@@ -13,7 +13,6 @@ public class Host extends BaseObject {
 	public Host(String nome, Nuvem nuvem) {
 		super(nome);
 		this.nuvem = nuvem;
-		//iniciaEspaco();
 	}
 	
 	public void iniciaEspaco() {

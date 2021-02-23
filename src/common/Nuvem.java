@@ -11,7 +11,6 @@ public class Nuvem extends BaseObject{
 	
 	public Nuvem(String nome) {
 		super(nome);
-		//iniciaEspaco();
 	}
 	
 	public void iniciaEspaco() {
@@ -76,7 +75,7 @@ public class Nuvem extends BaseObject{
 				listaHost.remove(i);
 			}
 			else {
-				System.out.println("SÃ³ Ã© possivel remover se estiver vazio");
+				JOptionPane.showMessageDialog(null, "Certifique-se de esvaziar o objeto antes de deletá-lo");
 			}
 		}
 	}
@@ -88,7 +87,8 @@ public class Nuvem extends BaseObject{
 			listaHost.remove(index);
 		}
 		else {
-			JOptionPane.showMessageDialog(null, "Certifique-se de esvaziar o objeto antes de deletá-lo");		}
+			JOptionPane.showMessageDialog(null, "Certifique-se de esvaziar o objeto antes de deletá-lo");
+			}
 	}
 	
 	public void finalizar() {

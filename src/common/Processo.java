@@ -13,7 +13,6 @@ public class Processo extends BaseObject {
 		this.nuvem = nuvem;
 		this.host = host;
 		this.vm = vm;
-		//iniciaEspaco();
 	}
 	
 	public void iniciaEspaco() {
@@ -25,12 +24,9 @@ public class Processo extends BaseObject {
 		if(!destino.contentEquals(espaco.getReferencia())) {
 			espaco.enviaMensagem(destino, nuvem+"/"+host+"/"+vm+"/"+this+": "+mensagem);
 		}
-		//gui.esreveChat("Mensagem enviada por "+nuvem+"/"+host+"/"+vm+"/"+this);
 	}
 	
 	public void receberMensagem(String mensagem) {
-		//gui.esreveChat("Mensagem recebida por "+nuvem+"/"+host+"/"+vm+"/"+this);
-		//gui.esreveChat(mensagem);
 		espaco.enviaMensagem("Servidor", "enviarMensagemC-Mensagem recebida por "+nuvem+"/"+host+"/"+vm+"/"+this);
 		espaco.enviaMensagem("Servidor", "enviarMensagemC-"+mensagem);
 	}

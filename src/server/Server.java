@@ -11,13 +11,13 @@ public class Server {
 	private Espaco espaco;
 	private int index = 0;
 	private int indexCliente = 0;
-	private ServerFrame window;
+	private ServerFrame serverFrame;
 	
 	public Server() {
 		espaco = new Espaco(this);
 		espaco.start();
-		window = new ServerFrame();
-		window.escreveChat("Servidor Iniciado");
+		serverFrame = new ServerFrame();
+		serverFrame.escreveChat("Servidor Iniciado");
 		while(true) {
 			
 		}
@@ -100,63 +100,62 @@ public class Server {
 			listaClientes.add(nomeCliente);
 			espaco.enviaMensagem("Cliente", nomeCliente);
 			indexCliente++;
-			window.escreveChat("Iniciando cliente: "+nomeCliente);
+			serverFrame.escreveChat("Iniciando cliente: "+nomeCliente);
 		}
 		else if(mensagem.contentEquals("criaNuvem")) {
 			criaNuvem();
-			window.escreveChat("Criando nuvem"+index);
+			serverFrame.escreveChat("Criando nuvem"+index);
 		}
 		else if(mensagem.contains("criaHost-")) {
 			criaHost(Integer.parseInt(mensagem.replaceFirst("criaHost-", "")));
-			window.escreveChat("Criando host");
+			serverFrame.escreveChat("Criando host");
 		}
 		else if(mensagem.contains("criaVm-")) {
 			mensagem = mensagem.replaceFirst("criaVm-", "");
 			ArrayList<Integer> indexes = extraiIndex(mensagem);
 			criaVm(indexes.get(0),indexes.get(1));
-			window.escreveChat("Criando vm");
+			serverFrame.escreveChat("Criando vm");
 		}
 		else if(mensagem.contains("criaProcesso-")) {
 			mensagem = mensagem.replaceFirst("criaProcesso-", "");
 			ArrayList<Integer> indexes = extraiIndex(mensagem);
 			criaProcesso(indexes.get(0),indexes.get(1),indexes.get(2));
-			window.escreveChat("Criando processo");
+			serverFrame.escreveChat("Criando processo");
 		}
 		else if(mensagem.contains("enviarMensagemP-")) {
 			mensagem = mensagem.replaceFirst("enviarMensagemP-", "");
 			String[] conteudo = mensagem.substring(mensagem.lastIndexOf("-")+1).split("//");
 			mensagem = mensagem.replaceFirst("-"+conteudo[0]+"//"+conteudo[1], "");
-			System.out.println(mensagem);
 			ArrayList<Integer> indexes = extraiIndex(mensagem);
 			enviarMensagemP(indexes.get(0),indexes.get(1),indexes.get(2),indexes.get(3),conteudo[0],conteudo[1]);
-			window.escreveChat("Enviando mensagem para processo");
+			serverFrame.escreveChat("Enviando mensagem para processo");
 		}
 		else if(mensagem.contains("enviarMensagemC-")) {
 			mensagem = mensagem.replaceFirst("enviarMensagemC-", "");
 			enviarMensagemC(mensagem);
-			window.escreveChat("Enviando mensagem para clientes");
+			serverFrame.escreveChat("Enviando mensagem para clientes");
 		}
 		else if(mensagem.contains("removeNuvem-")) {		
 			removeNuvem(Integer.parseInt(mensagem.replaceFirst("removeNuvem-", "")));
-			window.escreveChat("Removendo nuvem");
+			serverFrame.escreveChat("Removendo nuvem");
 		}
 		else if(mensagem.contains("removeHost-")) {		
 			mensagem = mensagem.replaceFirst("removeHost-", "");
 			ArrayList<Integer> indexes = extraiIndex(mensagem);
 			removeHost(indexes.get(0), indexes.get(1));
-			window.escreveChat("Removendo host");
+			serverFrame.escreveChat("Removendo host");
 		}
 		else if(mensagem.contains("removeVm-")) {		
 			mensagem = mensagem.replaceFirst("removeVm-", "");
 			ArrayList<Integer> indexes = extraiIndex(mensagem);
 			removeVm(indexes.get(0), indexes.get(1),indexes.get(2));
-			window.escreveChat("Removendo vm");
+			serverFrame.escreveChat("Removendo vm");
 		}
 		else if(mensagem.contains("removeProcesso-")) {		
 			mensagem = mensagem.replaceFirst("removeProcesso-", "");
 			ArrayList<Integer> indexes = extraiIndex(mensagem);
 			removeProcesso(indexes.get(0), indexes.get(1),indexes.get(2),indexes.get(3));
-			window.escreveChat("Removendo processo");
+			serverFrame.escreveChat("Removendo processo");
 		}
 		else if(mensagem.contains("moverHost-")) {
 			mensagem = mensagem.replaceFirst("moverHost-", "");
@@ -164,7 +163,7 @@ public class Server {
 			mensagem = mensagem.replaceFirst("-"+conteudo[0]+"//"+conteudo[1], "");
 			ArrayList<Integer> indexes = extraiIndex(mensagem);
 			moverHost(indexes.get(0),conteudo[0],conteudo[1]);
-			window.escreveChat("Movendo host");
+			serverFrame.escreveChat("Movendo host");
 		}
 		else if(mensagem.contains("moverVm-")) {
 			mensagem = mensagem.replaceFirst("moverVm-", "");
@@ -172,7 +171,7 @@ public class Server {
 			mensagem = mensagem.replaceFirst("-"+conteudo[0]+"//"+conteudo[1], "");
 			ArrayList<Integer> indexes = extraiIndex(mensagem);
 			moverVm(indexes.get(0),indexes.get(1),conteudo[0],conteudo[1]);
-			window.escreveChat("Movendo vm");
+			serverFrame.escreveChat("Movendo vm");
 		}
 		else if(mensagem.contains("moverProcesso-")) {
 			mensagem = mensagem.replaceFirst("moverProcesso-", "");
@@ -180,7 +179,7 @@ public class Server {
 			mensagem = mensagem.replaceFirst("-"+conteudo[0]+"//"+conteudo[1], "");
 			ArrayList<Integer> indexes = extraiIndex(mensagem);
 			moverProcesso(indexes.get(0),indexes.get(1),indexes.get(2),conteudo[0],conteudo[1]);
-			window.escreveChat("Movendo processo");
+			serverFrame.escreveChat("Movendo processo");
 		}
 		try {
 			Thread.sleep(300);

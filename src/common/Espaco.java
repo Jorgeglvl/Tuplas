@@ -12,7 +12,7 @@ import server.Server;
 public class Espaco extends Thread implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
-	//--------------------------------------------/Classes do programa/--------------------------------------------//
+
 	private JavaSpace space;
 	private Nuvem nuvem = null;
 	private Host host = null;
@@ -20,12 +20,8 @@ public class Espaco extends Thread implements Serializable {
 	private Processo processo = null;
 	private Server servidor = null;
 	private Gerenciador cliente = null;
-	//--------------------------------------------/-------------/--------------------------------------------//
-	
-	//--------------------------------------------/Flag/--------------------------------------------//
-	private boolean running = true;
-	//--------------------------------------------/-------------/--------------------------------------------//
-	
+
+	private boolean running = true;	
 	
 	public Espaco() {
 		connect();
@@ -34,37 +30,31 @@ public class Espaco extends Thread implements Serializable {
 	public Espaco(Server servidor) {
 		this();
 		this.servidor = servidor;
-		System.out.println("Espaco criado: "+this.servidor.getNome());
 	}
 	
 	public Espaco(Gerenciador cliente) {
 		this();
 		this.cliente = cliente;
-		System.out.println("Espaco criado: "+this.cliente.getNome());
 	}
 	
 	public Espaco(Nuvem nuvem) {
 		this();
 		this.nuvem = nuvem;
-		System.out.println("Espaco criado: "+this.nuvem.getNome());
 	}
 	
 	public Espaco(Nuvem nuvem, Host host) {
 		this(nuvem);
 		this.host = host;
-		System.out.println("Espaco criado: "+this.host.getNome());
 	}
 	
 	public Espaco(Nuvem nuvem, Host host, Vm vm) {
 		this(nuvem,host);
 		this.vm = vm;
-		System.out.println("Espaco criado: "+this.vm.getNome());
 	}
 	
 	public Espaco(Nuvem nuvem, Host host, Vm vm, Processo processo) {
 		this(nuvem,host,vm);
 		this.processo = processo;
-		System.out.println("Espaco criado: "+this.processo.getNome());
 	}
 	
 	public boolean connect() {
@@ -72,30 +62,20 @@ public class Espaco extends Thread implements Serializable {
 		Lookup finder = new Lookup(JavaSpace.class);
         space = (JavaSpace) finder.getService();
         if (space == null) {
-                System.out.println("O servico JavaSpace nao foi encontrado.");
                 return false;
-                //System.exit(-1);
         } 
-        System.out.println("O servico JavaSpace foi encontrado.");
-        System.out.println(space);
         return true;
 	}
 	
-	/**
-	 * Fun��o para envio de mensagens ao espa�o de tuplas.
-	 */
 	public void enviaMensagem(String destino, Object mensagem) {
 		try {
-			System.out.println("Destino: "+destino);
 			space.write(new Message(destino,mensagem), null, 60 * 10000);
 		} catch (RemoteException | TransactionException e) {
 			e.printStackTrace();
 		}
 	}
 	
-	/**
-	 * Função para pegar a assinatura que irá compor o modelo de padrão da mensagem
-	 */
+
 	public String getReferencia() {
 		
 		String referencia;
@@ -123,9 +103,6 @@ public class Espaco extends Thread implements Serializable {
 		return referencia;
 	}
 	
-	/**
-	 * Função para pegar a assinatura que irá compor o modelo de padrão da mensagem
-	 */
 	@SuppressWarnings("unchecked")
 	public void adicionaObjeto(Object mensagem) {
 		
@@ -157,9 +134,6 @@ public class Espaco extends Thread implements Serializable {
 		else if(nuvem!=null) {
 			nuvem.adicionaHost((Host)mensagem);
 		}
-		else {
-			//Hoje não
-		}
 	}
 	
 	public void finalizar() {
@@ -174,7 +148,6 @@ public class Espaco extends Thread implements Serializable {
 			try {
 				msg = (Message) space.take(new Message(getReferencia()), null, 10 * 1000);
 				if(msg != null) {
-					System.out.println("Mensagem recebida por "+getReferencia()+" : "+msg.mensagem);
 					adicionaObjeto(msg.mensagem);
 				}
 			} catch (RemoteException | UnusableEntryException | TransactionException | InterruptedException e) {

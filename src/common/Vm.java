@@ -14,7 +14,6 @@ public class Vm extends BaseObject{
 		super(nome);
 		this.nuvem = nuvem;
 		this.host = host;
-		//iniciaEspaco();
 	}
 	
 	public void iniciaEspaco() {
