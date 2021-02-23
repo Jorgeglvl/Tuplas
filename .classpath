@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-14">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="C:/Users/Jorge Estudo/Desktop/river/lib/asm-3.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Jorge Estudo/Desktop/river/lib/asm-commons-3.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Jorge Estudo/Desktop/river/lib/browser.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Jorge Estudo/Desktop/river/lib/checkconfigurationfile.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Jorge Estudo/Desktop/river/lib/checkser.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Jorge Estudo/Desktop/river/lib/classdep.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Jorge Estudo/Desktop/river/lib/classserver.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Jorge Estudo/Desktop/river/lib/computedigest.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Jorge Estudo/Desktop/river/lib/computehttpmdcodebase.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Jorge Estudo/Desktop/river/lib/destroy.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Jorge Estudo/Desktop/river/lib/envcheck.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Jorge Estudo/Desktop/river/lib/extra.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Jorge Estudo/Desktop/river/lib/fiddler.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Jorge Estudo/Desktop/river/lib/group.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Jorge Estudo/Desktop/river/lib/jarwrapper.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Jorge Estudo/Desktop/river/lib/jini-core.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Jorge Estudo/Desktop/river/lib/jini-ext.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Jorge Estudo/Desktop/river/lib/jsk-debug-policy.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Jorge Estudo/Desktop/river/lib/jsk-lib.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Jorge Estudo/Desktop/river/lib-dl/browser-dl.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Jorge Estudo/Desktop/river/lib-dl/fiddler-dl.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Jorge Estudo/Desktop/river/lib-dl/group-dl.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Jorge Estudo/Desktop/river/lib-dl/jsk-dl.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Jorge Estudo/Desktop/river/lib-dl/mahalo-dl.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Jorge Estudo/Desktop/river/lib-dl/mercury-dl.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Jorge Estudo/Desktop/river/lib-dl/norm-dl.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Jorge Estudo/Desktop/river/lib-dl/outrigger-dl.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Jorge Estudo/Desktop/river/lib-dl/phoenix-dl.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Jorge Estudo/Desktop/river/lib-dl/reggie-dl.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Jorge Estudo/Desktop/river/lib-dl/sdm-dl.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Jorge Estudo/Desktop/river/lib-ext/jsk-policy.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
